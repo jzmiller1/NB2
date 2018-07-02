@@ -10,7 +10,8 @@ class Menu:
                 "2": self.search_notes,
                 "3": self.add_note,
                 "4": self.modify_note,
-                "5": self.quit
+                "5": self.merge_notes,
+                "6": self.quit
                 }
 
     def display_menu(self):
@@ -21,7 +22,8 @@ Notebook Menu
 2. Search Notes
 3. Add Note
 4. Modify Note
-5. Quit
+5. Merge notes
+6. Quit
 """)
 
     def run(self):
@@ -60,6 +62,22 @@ Notebook Menu
             self.notebook.modify_memo(id, memo)
         if tags:
             self.notebook.modify_tags(id, tags)
+
+    # Function allows merging of notes to eliminate repetitive notes in storage.
+    def merge_notes (self):
+        input("Enter note(s): ")
+
+        f1 = open("notes.txt")
+        f1_contents = f1.read()
+        f1.close()
+
+        f2 = open("notes2.txt")
+        f2_contents = f2.read()
+        f2.close()
+
+        f3 = open("merge.txt", "w")  # open `w` mode to write
+        f3.write(f1_contents + f2_contents)  # concatenate the contents of the text files
+        f3.close()
 
     def quit(self):
         print("Thank you for using your notebook today.")
