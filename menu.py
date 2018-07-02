@@ -67,11 +67,11 @@ Notebook Menu
     def merge_notes (self):
         input("Enter note(s): ")
 
-        f1 = open("notes.txt")
+        f1 = open("note1.txt")
         f1_contents = f1.read()
         f1.close()
 
-        f2 = open("notes2.txt")
+        f2 = open("note2.txt")
         f2_contents = f2.read()
         f2.close()
 
